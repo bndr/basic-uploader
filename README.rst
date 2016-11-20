@@ -37,6 +37,14 @@ Run tests
 
     nose2
 
+Endpoints
+------------
+
+- GET / - Root endpoints, file uploader form
+- GET /list/ - List all uploaded files
+- GET /api/v1/download/<filename> - Download the specified file if it exists
+- POST /api/v1/upload/ - Upload file
+
 Notes
 -----
 
