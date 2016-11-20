@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-10">
+    <h1> File Uploader </h1>
+    <small>Some special chars will be transformed before upload</small>
+    <div class="col-md-10" style="margin-top:20px">
+       <form>
+           <div class="alert alert-danger" style="display:none" id="errors" role="alert"> You need to accept that this is the best form ever.</div>
+          <div class="form-group">
+            <label for="upload-files">Drag and drop files:</label>
+           <input id="upload-files" name="inputfiles[]" multiple type="file" class="file-loading">
+          </div>
+           <div class="checkbox">
+        <label>
+          <input type="checkbox" id="accept-agreement"> I agree, that this is the best form ever.
+        </label>
+      </div>
+           <button type="submit" class="btn btn-default" id="submit-files">Submit</button>
+       </form>
+        </div>
+        <a href="/list/">View all files</a>
+</div>
+{% endblock %}

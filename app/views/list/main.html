@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-10">
+    <h1> Files already saved </h1>
+
+    {% if files|length > 0 %}
+    <div class="col-md-10" style="margin-top:20px">
+       <table class="table table-condensed table-striped">
+        <thead>
+        <tr>
+            <th>Filename</th>
+            <th>Size (MB)</th>
+            <th>Creation Date</th>
+            <th>Download Link</th>
+        </tr>
+       </thead>
+        <tbody>
+       {% for item in files %}
+            <tr>
+                <td>{{ item['meta']['filename'] }} </td>
+                <td>{{ item['meta']['size'] }} </td>
+                <td>{{ item['meta']['creation_date'] }} </td>
+                <td><a href="/api/v1/download/{{ item['meta']['filename'] }}">Download</a> </td>
+            </tr>
+        {% endfor %}
+       </tbody>
+       </table>
+        </div>
+    {% else %}
+    <h3> Currently no files were uploaded. Sorry :(</h3>
+    {% endif %}
+    <a href="/">Go back to index page</a>
+</div>
+{% endblock %}
